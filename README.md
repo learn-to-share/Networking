@@ -29,9 +29,8 @@ For example, when an email is sent over TCP, a connection is established and a 3
 2. **TCP/IP vs OSI Model: What's the Difference?**
 
 While TCP/IP is the newer model, the Open Systems Interconnection (OSI) model is still referenced a lot to describe network layers!
-![image](https://user-images.githubusercontent.com/39849388/111714822-78008b80-888d-11eb-9abd-f621d81f61cb.png)
-
 **OSI Model Layers:**
+
 
 1. Physical (e.g. cable, RJ45)
 2. Data Link (e.g. MAC, switches)
@@ -47,7 +46,6 @@ The TCP/IP model is a more concise framework, with only 4 layers:
 2. Internet
 3. Transport (or Host-to-Host)
 4. Application (or Process)
-
 
 
 3. **Network Layers and Functions**
