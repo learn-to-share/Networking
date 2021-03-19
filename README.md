@@ -53,6 +53,8 @@ The TCP/IP model is a more concise framework, with only 4 layers:
 
 
 3. **What are the Network Layers and their functions?**
+
+
 **OSI Model:**
 • Layer 7 (Application): Most of what the user actually interacts with is at this layer. Web browsers and other internet-connected applications (like Skype or Outlook) use Layer 7 application protocols.
 • Layer 6 (Presentation): This layer converts data to and from the Application layer. In other words, it translates application formatting to network formatting and vice versa. This allows the different layers to understand each other.
