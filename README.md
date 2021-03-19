@@ -49,6 +49,7 @@ The TCP/IP model is a more concise framework, with only 4 layers:
 4. Application (or Process)
 
 
+
 3. **Network Layers and Functions**
 
 **OSI Model:**
@@ -76,13 +77,13 @@ When we say that the client initiates an HTTPs or HTTP request it actually means
 **It is the client’s operating system that chooses the sender’s port from the ephemeral port range and this range varies depending on the OS**. For example, many Linux kernels including Amazon Linux kernel use port 32768-61000. Windows OS through Windows Server 2003 use port 1025-5000. While Windows Server 2008 and later use port 49152-65535. Elastic load balancers and NAT gateways use port 1024-65535.
 After communication is terminated, the port becomes available for use in another session. However, it is usually reused only after the entire port range is used up![image]
 
-6.  **What is IPSEC?**
+5.  **What is IPSEC?**
 
 IPsec is a group of protocols that are used together to set up encrypted connections between devices. It helps keep data sent over public networks secure. IPsec is often used to set up VPNs, and it works by encrypting IP packets, along with authenticating the source where the packets come from.
 
 Within the term "IPsec," "IP" stands for "Internet Protocol" and "sec" for "secure." The Internet Protocol is the main routing protocol used on the Internet; it designates where data will go using IP addresses. **IPsec is secure because it adds encryption* and authentication to this process**.
 
-7. **What is a VPN? What is an IPsec VPN?**
+6. **What is a VPN? What is an IPsec VPN?**
 
 A virtual private network (VPN) is an encrypted connection between two or more computers. VPN connections take place over public networks, but the data exchanged over the VPN is still private because it is encrypted.
 
@@ -90,7 +91,7 @@ VPNs make it possible to securely access and exchange confidential data over sha
 
 Many VPNs use the IPsec protocol suite to establish and run these encrypted connections. However, not all VPNs use IPsec. Another protocol for VPNs is SSL/TLS, which operates at a different layer in the OSI model than IPsec.
 
-8. **How does IPsec work?**
+7. **How does IPsec work?**
 
 IPsec connections include the following steps:
 
@@ -106,22 +107,22 @@ IPsec connections include the following steps:
 
 **Decryption:** At the other end of the communication, the packets are decrypted, and applications (e.g. a browser) can now use the delivered data.
 
-9. **What is the difference between IPsec tunnel mode and IPsec transport mode?**
+8. **What is the difference between IPsec tunnel mode and IPsec transport mode?**
 
 **IPsec tunnel mode is used between two dedicated routers**, with each router acting as one end of a virtual "tunnel" through a public network. **In IPsec tunnel mode, the original IP header containing the final destination of the packet is encrypted, in addition to the packet payload.** To tell intermediary routers where to forward the packets, IPsec adds a new IP header. At each end of the tunnel, the routers decrypt the IP headers to deliver the packets to their destinations.
 
 **In transport mode, the payload of each packet is encrypted, but the original IP header is not.** Intermediary routers are thus able to view the final destination of each packet — unless a separate tunneling protocol (such as GRE) is used.
 
-10. **What port does IPsec use?**
+9. **What port does IPsec use?**
 
 A network port is the virtual location where data goes in a computer. Ports are how computers keep track of different processes and connections; if data goes to a certain port, the computer's operating system knows which process it belongs to. **IPsec usually uses port 500.**
 
-11. **How does IPsec impact MSS and MTU?**
+10. **How does IPsec impact MSS and MTU?**
 MSS and MTU are two measurements of packet size. Packets can only reach a certain size (measured in bytes) before computers, routers, and switches cannot handle them. MSS measures the size of each packet's payload, while MTU measures the entire packet, including headers. Packets that exceed a network's MTU may be fragmented, meaning broken up into smaller packets and then reassembled. Packets that exceed the MSS are simply dropped.
 
 IPsec protocols add several headers and trailers to packets, all of which take up several bytes. For networks that use IPsec, either the MSS and MTU have to be adjusted accordingly, or packets will be fragmented and slightly delayed. Usually, the MTU for a network is 1,500 bytes. A normal IP header is 20 bytes long, and a TCP header is also 20 bytes long, meaning each packet can contain 1,460 bytes of payload. However, IPsec adds an Authentication Header, an ESP header, and associated trailers. These add 50-60 bytes to a packet, or more.
 
-12. **What is an autonomous system?**
+11. **What is an autonomous system?**
 The Internet is a network of networks*, and autonomous systems are the big networks that make up the Internet. More specifically, an autonomous system (AS) is a large network or group of networks that has a unified routing policy. Every computer or device that connects to the Internet is connected to an AS.
 
 ![image](https://user-images.githubusercontent.com/39849388/111716758-ac764680-8891-11eb-9d70-f8030c27ae1e.png)
@@ -137,14 +138,14 @@ Most ASes connect to several other ASes. If an AS connects to only one other AS 
 Typically, each AS is operated by a single large organization, such as an Internet service provider (ISP), a large enterprise technology company, a university, or a government agency.
 
 
-13. **What is an AS routing policy?**
+12. **What is an AS routing policy?**
 An AS routing policy is a list of the IP address space that the AS controls, plus a list of the other ASes to which it connects. This information is necessary for routing packets to the correct networks. ASes announce this information to the Internet using the Border Gateway Protocol (BGP).
 
-14. **What is IP address space?**
+13. **What is IP address space?**
 A specified group or range of IP addresses is called "IP address space." Each AS controls a certain amount of IP address space. (A group of IP addresses can also be called an IP address "block".)
 
 
-15. **What is an autonomous system number (ASN)?**
+14. **What is an autonomous system number (ASN)?**
 Each AS is assigned an official number, or autonomous system number (ASN), similar to how every business has a business license with an unique, official number. But unlike businesses, external parties often refer to ASes by their number alone.
 
 AS numbers, or ASNs, are unique 16 bit numbers between 1 and 65534 or 32 bit numbers between 131072 and 4294967294. They are presented in this format: AS(number). For instance, Cloudflare's ASN is AS13335. According to some estimates, there are over 90,000 ASNs in use worldwide.
@@ -153,21 +154,21 @@ ASNs are only required for external communications with inter-network routers (s
 
 An AS has to meet certain qualifications before the governing bodies that assign ASNs will give it a number. It must have a distinct routing policy, be of a certain size, and have more than one connection to other ASes. There is a limited amount of ASNs available, and if they were given out too freely, the supply would run out and routing would become much more complex.
 
-16. **What is BGP?**
+15. **What is BGP?**
 ASes announce their routing policy to other ASes and routers via the Border Gateway Protocol (BGP). **BGP is the protocol for routing data packets between ASes**. Without this routing information, operating the Internet on a large scale would quickly become impractical: data packets would get lost or take too long to reach their destinations.
 
 **Each AS uses BGP to announce which IP addresses they are responsible for and which other ASes they connect to**. BGP routers take all this information from ASes around the world and put it into databases called **routing tables** to determine the fastest paths from AS to AS. When packets arrive, BGP routers refer to their routing tables to determine which AS the packet should go to next.
 
 With so many ASes in the world, BGP routers are constantly updating their routing tables. As networks go offline, new networks come online, and ASes expand or contract their IP address space, all of this information has to be announced via BGP so that BGP routers can adjust their routing tables.
 
-17. **Why is BGP routing necessary? Isn't IP used for routing?**
+16. **Why is BGP routing necessary? Isn't IP used for routing?**
 
 IP, or the Internet Protocol, is indeed used for routing in that it specifies which destination each packet is going to. BGP is responsible for directing packets on the fastest route to their destination. Without BGP, IP packets would bounce around the Internet randomly from AS to AS, like a driver trying to reach their destination by guessing which roads to take.
 
-18. **How do autonomous systems connect with each other?**
+17. **How do autonomous systems connect with each other?**
 ASes connect with each other and exchange network traffic (data packets) through a process called peering. One way ASes peer with each other is by connecting at physical locations called Internet Exchange Points (IXPs). An IXP is a large local area network (LAN) with lots of routers, switches, and cable connections.
 
-19. **What are the main routing protocols?**
+18. **What are the main routing protocols?**
 In networking, a protocol is a standardized way of formatting data so that any connected computer can understand the data. A routing protocol is a protocol used for identifying or announcing network paths.
 
 The following protocols help data packets find their way across the Internet:
@@ -182,7 +183,7 @@ The below protocols route packets within an AS:
 
 **RIP:** The Routing Information Protocol (RIP) uses "hop count" to find the shortest path from one network to another, where "hop count" means number of routers a packet must pass through on the way. (When a packet goes from one network to another, this is known as a "hop.")
 
-20. **What is maximum segment size (MSS)?**
+19. **What is maximum segment size (MSS)?**
 MSS (maximum segment size) limits the size of packets, or small chunks of data, that travel across a network, such as the Internet. All data that travels over a network is broken up into packets. Packets have several headers attached to them that contain information about their contents and destination. MSS measures the non-header portion of a packet, which is called the payload.
 
 If a data packet is compared to a transport truck, with the header being the truck itself and the payload being the trailer and cargo, then MSS is like a scale that measures only the trailer. If the trailer weighs too much, then the truck is not allowed to continue to its destination.
