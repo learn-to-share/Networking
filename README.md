@@ -45,8 +45,7 @@ The TCP/IP model is a more concise framework, with only 4 layers:
 2. Internet
 3. Transport (or Host-to-Host)
 4. Application (or Process)
-
-
+![image](https://user-images.githubusercontent.com/39849388/111740278-6fc14400-88bf-11eb-8ca0-a17a57a8d83b.png)
 
 3. **What are the Network Layers and their functions?**
 
