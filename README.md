@@ -47,7 +47,8 @@ The TCP/IP model is a more concise framework, with only 4 layers:
 4. Application (or Process)
 
 
-![image](https://user-images.githubusercontent.com/39849388/111740278-6fc14400-88bf-11eb-8ca0-a17a57a8d83b.png)
+![image](https://user-images.githubusercontent.com/39849388/111740452-c3cc2880-88bf-11eb-8ecf-91f752368717.png)
+
 
 
 
