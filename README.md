@@ -3,6 +3,7 @@ Networking Concepts
 1. **TCP vs UDP**
 
     TCP and UDP are both transport layer protocols. **TCP is a connection orientated protocol** and provides reliable message transfer. **UDP is a connection less protocol** and does not guarantee message delivery.
+    
     TCP: **The TCP transport takes care of errors on the link**, and the application can be confident that the data received is error free.
     TCP is used by application protocols that need guaranteed message delivery. HTTP,FTP, SMTP, POP3, IMAP4 and many other common Internet application protocols use TCP.
 
